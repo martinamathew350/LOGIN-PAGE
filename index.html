@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHub Animated Login & Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="logo">
+            <i class="fa-solid fa-cube"></i> TechHub
+        </div>
+        
+        <h2 id="card-title">WELCOME BACK!</h2>
+
+        <form id="loginForm" action="#">
+            
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="••••••••" required>
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox"> Remember Me
+                </label>
+                <a href="#" onclick="showForgotForm(event)">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">
+                SIGN IN <i class="fa-solid fa-power-off"></i>
+            </button>
+
+            <div class="bottom-text">
+                Don't have an account? <a href="#" onclick="showSignupForm(event)">Sign Up</a>
+            </div>
+        </form>
+
+        <form id="signupForm" action="#" style="display: none;">
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Create Password" required>
+            </div>
+
+            <button type="submit" class="login-btn">
+                SIGN UP <i class="fa-solid fa-user-plus"></i>
+            </button>
+
+            <div class="bottom-text">
+                Already have an account? <a href="#" onclick="showLoginForm(event)">Sign In</a>
+            </div>
+        </form>
+
+        <form id="forgotForm" action="#" style="display: none;">
+            <p class="form-text">Enter your email address to reset your password.</p>
+            
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+
+            <button type="submit" class="login-btn">
+                SEND LINK <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <div class="bottom-text">
+                <a href="#" onclick="showLoginForm(event)"><i class="fa-solid fa-arrow-left"></i> Back to Login</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function showForgotForm(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('forgotForm').style.display = 'block';
+            document.getElementById('card-title').innerText = 'RESET PASSWORD';
+        }
+
+        function showLoginForm(e) {
+            e.preventDefault();
+            document.getElementById('forgotForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('card-title').innerText = 'WELCOME BACK!';
+        }
+
+        function showSignupForm(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('forgotForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'block';
+            document.getElementById('card-title').innerText = 'CREATE ACCOUNT';
+        }
+    </script>
+</body>
+</html>
